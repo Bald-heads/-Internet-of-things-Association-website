@@ -1,0 +1,245 @@
+{% extends "layout/basic.html" %}
+{% load static %}
+{% block css %}
+    <style>
+        .img1 {
+            width: 20%;
+            height: 300px;
+            float: left;
+        }
+
+        ,
+        .display {
+            width: 80%;
+            height: 300px;
+        }
+
+        /*整体去除内外边距*/
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        /*取消列表的图标内容*/
+        ul {
+            list-style: none;
+        }
+
+        /*对整体部分的控制，浏览图片的窗口*/
+        .banner {
+            width: 512px;
+            height: 512px;
+            border: 2px solid #ccc;
+            margin: 100px auto;
+            position: relative;
+            overflow: hidden;
+            bottom: 20px;
+            right: 0;
+            margin-top: 400px;
+            margin-right: 25px;
+        }
+
+        /*图片的初步设置后面的动态内容会在js中实现*/
+        .img {
+            width: 512px;
+            height: 512px;
+            position: absolute;
+            bottom: 20px;
+            right: 0;
+        }
+
+        /*让没长图片向左浮动*/
+        .img li {
+            float: left;
+        }
+
+        /*圆点承载部分的设计*/
+        .num {
+            position: absolute;
+            bottom: 10px;
+            width: 100%;
+            text-align: center;
+            font-size: 0;
+        }
+
+        /*圆点设计*/
+        .num li {
+            width: 10px;
+            height: 10px;
+            background: rgba(0, 0, 0, 0.5);
+            border-radius: 100%;
+            display: inline-block;
+            margin: 0 5px;
+            cursor: pointer;
+        }
+
+        /*按钮部分初始不可见*/
+        .btn {
+            display: none;
+        }
+
+        /*按钮形状设计*/
+        .btn span {
+            display: block;
+            width: 50px;
+            height: 100px;
+            background: rgba(0, 0, 0, 0.6);
+            color: #fff;
+            font-size: 40px;
+            line-height: 100px;
+            text-align: center;
+            cursor: pointer;
+        }
+
+        /*上一个设计*/
+        .btn .prev {
+            position: absolute;
+            left: 0;
+            top: 50%;
+            margin-top: -50px;
+        }
+
+        /*下一个设计*/
+        .btn .next {
+            position: absolute;
+            right: 0;
+            top: 50%;
+            margin-top: -50px;
+        }
+
+        /*对按妞动态呈现的变换进行类选择器的设计为js代码部分进行铺垫*/
+        .num .active {
+            background-color: #fff;
+        }
+
+        .hide {
+            display: none;
+        }
+
+        .bk {
+            width: 100%;
+            height: 350px;
+            border: #2aabd2 10px solid;
+            float: right;
+        }
+    </style>
+{% endblock %}
+{% block body %}
+        <div>
+            <div class="bk" style="width: 100%">
+            <div><img src="{% static 'img/3.png' %}" class="img1">
+            </div>
+            <div class="display">
+                <h1 class="font-size: 40px" style="popadding-top: 20px;position: relative">一.简介：</h1>
+                <span style="font-size: 20px;padding-top: 20px; float: right;position: absolute">
+                    宁夏理工学院物联网创新协会，成立于2015年11月，是宁夏理工学院热爱物联网创新活动的在校大学生自愿结成的面向校园和社会进行各种物联网创新活动的群众性组织团体。
+                    在推进素质教育的今天，大学生的实际动手能力与创新意识不能忽视。成立本协会的目的在于培养大学生的动手能力，充实大学生校园生活，拓展大学生视野，加强大学生与社会的联系，培养综合素质全面发展的、服务社会的优秀人才。
+                    本协会尽大学生力所能及，充分利用大学生的课余时间培养动手能力和创新意识，推进学校物联网技术创新事业的发展。
+                </span>
+            </div>
+        </div>
+    </div>
+    <div class="banner">
+        <!--无序列表承载轮播的图片-->
+        <ul class="img">
+{#            <li><a href="#"><img src="{% static 'img/4.png' %}" alt="第1张图片"></a></li>#}
+{#            <li><a href="#"><img src="{% static 'img/2.png' %}" alt="第2张图片"></a></li>#}
+            <li><a href="#"><img src="{% static 'img/8.jpg' %}" alt="第3张图片"></a></li>
+            <li><a href="#"><img src="{% static 'img/9.jpg' %}" alt="第4张图片"></a></li>
+            <li><a href="#"><img src="{% static 'img/10.jpg' %}" alt="第5张图片"></a></li>
+            <li><a href="#"><img src="{% static 'img/11.jpg' %}" alt="第6张图片"></a></li>
+{#            <li><a href="#"><img src="image/7.png" alt="第7张图片"></a></li>#}
+        </ul>
+        <!--用来放置圆点具体实施在js代码中呈现-->
+        <ul class="num"></ul>
+        <!--左右点击按钮-->
+        <div class="btn">
+            <span class="prev"><</span>
+            <span class="next">></span>
+        </div>
+    </div>
+{% endblock %}
+{% block js %}
+    <script>
+        $(function () {
+            var i = 0;
+            var timer = null;
+            for (var j = 0; j < $('.img li').length; j++) {
+                $('.num').append('<li></li>');
+            }
+            $('.num li').first().addClass('active');
+            $('.banner').hover(function () {
+                $('.btn').show();
+            }, function () {
+                $('.btn').hide();
+            });
+            var firstimg = $('.img li').first().clone(); //复制第一张图片
+            $('.img').append(firstimg).width($('.img li').length * ($('.img img').width()));
+            timer = setInterval(function () {
+                i++;
+                if (i == $('.img li').length) {
+                    i = 1;
+                    $('.img').css({left: 0});
+                }
+                $('.img').stop().animate({left: -i * 512}, 500);
+                if (i == $('.img li').length - 1) {
+                    $('.num li').eq(0).addClass('active').siblings().removeClass('active');
+                } else {
+                    $('.num li').eq(i).addClass('active').siblings().removeClass('active');
+                }
+            }, 3000);
+            $('.banner').hover(function () {
+                clearInterval(timer);
+            }, function () {
+                timer = setInterval(function () {
+                    i++;
+                    if (i == $('.img li').length) {
+                        i = 1;
+                        $('.img').css({left: 0});
+                    }
+                    ;
+                    //进行下一张图片
+                    $('.img').stop().animate({left: -i * 512}, 500);
+                    //圆点跟着变化
+                    if (i == $('.img li').length - 1) {
+                        $('.num li').eq(0).addClass('active').siblings().removeClass('active');
+                    } else {
+                        $('.num li').eq(i).addClass('active').siblings().removeClass('active');
+                    }
+                }, 3000)
+            });
+            $('.prev').click(function () {
+                i--;
+                if (i == -1) {
+                    i = $('.img li').length - 2;
+                    $('.img').css({left: -($('.img li').length - 1) * 1024});
+                }
+                $('.img').stop().animate({left: -i * 512}, 500);
+                $('.num li').eq(i).addClass('active').siblings().removeClass('active');
+            });
+            $('.next').click(function () {
+                i++;
+                if (i == $('.img li').length) {
+                    i = 1; //这里不是i=0
+                    $('.img').css({left: 0});
+                }
+                ;
+                $('.img').stop().animate({left: -i * 512}, 500);
+                if (i == $('.img li').length - 1) { //设置小圆点指示
+                    $('.num li').eq(0).addClass('active').siblings().removeClass('active');
+                } else {
+                    $('.num li').eq(i).addClass('active').siblings().removeClass('active');
+                }
+                ;
+
+            });
+            $('.num li').mouseover(function () {
+                var _index = $(this).index();
+                i = _index;
+                $('.img').stop().animate({left: -_index * 512}, 300);
+                $('.num li').eq(_index).addClass('active').siblings().removeClass('active');
+            });
+
+        })
+    </script>
+{% endblock %}

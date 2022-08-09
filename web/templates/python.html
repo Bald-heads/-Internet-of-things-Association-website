@@ -1,0 +1,171 @@
+{% extends 'layout/study.html' %}
+{% load static %}
+{% block css %}
+    <style>
+        .background {
+            background-color: #31b0d5;
+    }
+    </style>
+{% endblock %}
+{% block body %}
+    <div id="pythonLanguage">
+        <div style="margin: 30px">
+            <div class="container">
+                <div class="panel panel-default">
+                    <div class="panel-heading background">python基础</div>
+                    <table class="table table-bordered">
+                        <tr>
+                            <th>python缩进规则</th>
+                            <th>数据类型</th>
+                            <th>顺序语句与结构</th>
+                            <th>条件和分支</th>
+                            <th>循环</th>
+                            <th>函数</th>
+                            <th>面向对象</th>
+                        </tr>
+                        <tr>
+                            <td>缩进方式及作用</td>
+                            <td>字符串,列表,字典,元组</td>
+                            <td>带有缩进的运行方式</td>
+                            <td>if,elif,else</td>
+                            <td>while和for</td>
+                            <td>函数的定义,调用及递归</td>
+                            <td>类和对象</td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <div>
+            <div style="margin: 100px">
+                <div class="container">
+                    <div class="panel panel-default">
+                        <div class="panel-heading background">python进阶编程</div>
+                        <table class="table table-bordered">
+                            <tr>
+                                <th>列表推导式</th>
+                                <th>断言,闭包</th>
+                                <th>匿名函数</th>
+                                <th>异常捕获预处理</th>
+                                <th>文件</th>
+                                <th>常用标准库</th>
+                                <th>面向对象的编程</th>
+                            </tr>
+                            <tr>
+                                <td>原理及应用</td>
+                                <td>原理及应用</td>
+                                <td>lambda函数</td>
+                                <td>try-except</td>
+                                <td>文件的读写与上下文操作</td>
+                                <td>os模块和sys模块</td>
+                                <td>类的操作</td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div>
+            <div style="margin: 100px">
+                <div class="container">
+                    <div class="panel panel-default">
+                        <div class="panel-heading background">flask</div>
+                        <table class="table table-bordered">
+                            <tr>
+                                <th>基本使用</th>
+                                <th>配置文件</th>
+                                <th>路由系统</th>
+                                <th>视图函数</th>
+                                <th>请求和响应</th>
+                                <th>Cookie和Session</th>
+                                <th>中间件</th>
+                            </tr>
+                            <tr>
+                                <td>母版语法</td>
+                                <td>存放js等的文件</td>
+                                <td>绑定路由关系</td>
+                                <td>路由系统对应的函数关系</td>
+                                <td>GET和POST的请求方式,与响应方法</td>
+                                <td>登录模块</td>
+                                <td>函数执行前的事件</td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div style="margin: 100px">
+            <div class="container">
+                <div class="panel panel-default">
+                    <div class="panel-heading background">Django</div>
+                    <table class="table table-bordered">
+                        <tr>
+                            <th>基本使用</th>
+                            <th>配置文件</th>
+                            <th>路由系统</th>
+                            <th>数据库操作</th>
+                            <th>Form和ModelForm</th>
+                            <th>Cookie和Session</th>
+                            <th>中间件</th>
+                        </tr>
+                        <tr>
+                            <td>母版语法</td>
+                            <td>存放js等的文件</td>
+                            <td>绑定路由关系</td>
+                            <td>orm组件,及链接数据库的方法</td>
+                            <td>生成前端页面的母版语法</td>
+                            <td>登录模块</td>
+                            <td>函数执行前的事件</td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <div style="margin: 100px">
+            <div class="container">
+                <div class="panel panel-default">
+                    <div class="panel-heading background">并发编程</div>
+                    <table class="table table-bordered">
+                        <tr>
+                            <th>多线程</th>
+                            <th>多进程</th>
+                            <th>协程</th>
+                            <th>异步编程</th>
+                            <th>asyncio</th>
+                        </tr>
+                        <tr>
+                            <td>多线程的用法及线程池</td>
+                            <td>多进程的方法及进程池</td>
+                            <td>上下文切换技术</td>
+                            <td>异步并发</td>
+                            <td>asyncio提供的框架</td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <div style="margin: 100px">
+            <div class="container">
+                <div class="panel panel-default">
+                    <div class="panel-heading background">Django rest framework</div>
+                    <table class="table table-bordered">
+                        <tr>
+                            <th>RestFul API接口协议</th>
+                            <th>序列化器</th>
+                            <th>反序列化操作</th>
+                            <th>DRF类视图</th>
+                            <th>路由Router</th>
+                        </tr>
+                        <tr>
+                            <td>了解PUT,DELETE等方式</td>
+                            <td>操作及应用</td>
+                            <td>操作及应用</td>
+                            <td>APIView</td>
+                            <td>作用及使用</td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

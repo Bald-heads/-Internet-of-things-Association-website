@@ -1,0 +1,86 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="{% static 'plugin/bootstrap-3.4.1-dist/css/bootstrap.min.css' %}">
+    <style>
+        .back {
+            background-color: #b9def0;
+        }
+    </style>
+    {% block css %}
+    {% endblock %}
+</head>
+<body>
+<nav class="navbar navbar-default back">
+    <div class="container">
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav">
+                <li class="dropdown">
+                    <a href="/study/c/" class="dropdown-toggle" data-toggle="dropdown" role="button"
+                       aria-haspopup="true"
+                       aria-expanded="false">c语言 <span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="/study/c/">c语言基础</a></li>
+                        <li><a href="/study/c/">c语言进阶</a></li>
+                    </ul>
+                </li>
+                <li class="dropdown">
+                    <a href="/study/java/" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
+                       aria-expanded="false">java <span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="/study/java/">基础学习</a></li>
+                        <li><a href="/study/java/">java进阶学习</a></li>
+                        <li><a href="/study/java/">javaWeb</a></li>
+                        <li role="separator" class="divider"></li>
+                        <li><a href="/study/java/">SpringBoot</a></li>
+                        <li role="separator" class="divider"></li>
+                        <li><a href="/study/java/">SSM</a></li>
+                    </ul>
+                </li>
+                <li class="dropdown">
+                    <a href="/study/python/" class="dropdown-toggle" data-toggle="dropdown" role="button"
+                       aria-haspopup="true"
+                       aria-expanded="false" onclick="py()">python <span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="/study/python/">python基础</a></li>
+                        <li><a href="/study/python/">python进阶编程</a></li>
+                        <li><a href="/study/python/">flask</a></li>
+                        <li role="separator" class="divider"></li>
+                        <li><a href="/study/python/">Django</a></li>
+                        <li><a href="/study/python/">并发编程</a></li>
+                        <li role="separator" class="divider"></li>
+                        <li><a href="/study/python/">Django rest framework</a></li>
+                    </ul>
+                </li>
+                <li class="dropdown">
+                    <a href="/study/web/" class="dropdown-toggle" data-toggle="dropdown" role="button"
+                       aria-haspopup="true"
+                       aria-expanded="false">web <span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="/study/web/">html</a></li>
+                        <li><a href="/study/web/">css</a></li>
+                        <li><a href="/study/web/">javascript</a></li>
+                        <li role="separator" class="divider"></li>
+                        <li><a href="/study/web/">VUE</a></li>
+                    </ul>
+                </li>
+                <ul class="nav navbar-nav navbar-right">
+                    <li class="dropdown">
+                        <a href="/index/" class="dropdown-toggle">返回主页</a>
+                    </li>
+                </ul>
+            </ul>
+        </div>
+    </div>
+</nav>
+{% block body %}
+{% endblock %}
+<script rel="stylesheet" src="{% static "js/jquery-3.6.0.min.js" %}"></script>
+<script rel="stylesheet" src="{% static 'plugin/bootstrap-3.4.1-dist/js/bootstrap.min.js' %}"></script>
+{% block js %}
+{% endblock %}
+</body>
+</html>

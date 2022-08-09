@@ -1,0 +1,113 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="{% static 'plugin/bootstrap-3.4.1-dist/css/bootstrap.min.css' %}">
+    <style>
+        .background {
+            background-color: #31b0d5;
+        }
+
+        .img1 {
+            width: 20%;
+            height: 300px;
+            float: left;
+        }
+        .display {
+            width: 80%;
+            height: 300px;
+        }
+
+        /*整体去除内外边距*/
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        /*取消列表的图标内容*/
+        ul {
+            list-style: none;
+        }
+
+        /*对整体部分的控制，浏览图片的窗口*/
+        .banner {
+            width: 512px;
+            height: 512px;
+            border: 2px solid #ccc;
+            margin: 100px auto;
+            position: relative;
+            overflow: hidden;
+            bottom: 20px;
+            right: 0;
+            margin-top: 400px;
+            margin-right: 25px;
+        }
+
+        /*让没长图片向左浮动*/
+        .img li {
+            float: left;
+        }
+
+        .bk {
+            width: 100%;
+            height: 350px;
+            border: #2aabd2 10px solid;
+            float: right;
+        }
+        .size{
+            font-size: 50px;
+            text-align: center;
+            line-height: 300px;
+        }
+    </style>
+</head>
+<body>
+<nav class="navbar navbar-default background">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+                    data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#">硬件类</a>
+            <a class="navbar-brand" href="/study/c/">软件类</a>
+            <a class="navbar-brand" href="/index/">返回首页</a>
+        </div>
+    </div>
+</nav>
+<div>
+    <div class="bk" style="width: 100%">
+        <div><span class="img1 size">软件类简介</span>
+        </div>
+        <div class="display">
+            <h1 class="font-size: 40px" style="popadding-top: 20px;position: relative">简介：</h1>
+            <span style="font-size: 20px;padding-top: 20px; float: right;position: absolute">
+                    宁夏理工学院物联网创新协会，成立于2015年11月，是宁夏理工学院热爱物联网创新活动的在校大学生自愿结成的面向校园和社会进行各种物联网创新活动的群众性组织团体。
+                    在推进素质教育的今天，大学生的实际动手能力与创新意识不能忽视。成立本协会的目的在于培养大学生的动手能力，充实大学生校园生活，拓展大学生视野，加强大学生与社会的联系，培养综合素质全面发展的、服务社会的优秀人才。
+                    本协会尽大学生力所能及，充分利用大学生的课余时间培养动手能力和创新意识，推进学校物联网技术创新事业的发展。
+                </span>
+        </div>
+    </div>
+</div>
+<div>
+    <div class="bk" style="width: 100%">
+        <div><span class="img1 size">硬件类简介</span>
+        </div>
+        <div class="display">
+            <h1 class="font-size: 40px" style="popadding-top: 20px;position: relative">简介：</h1>
+            <span style="font-size: 20px;padding-top: 20px; float: right;position: absolute">
+                    宁夏理工学院物联网创新协会，成立于2015年11月，是宁夏理工学院热爱物联网创新活动的在校大学生自愿结成的面向校园和社会进行各种物联网创新活动的群众性组织团体。
+                    在推进素质教育的今天，大学生的实际动手能力与创新意识不能忽视。成立本协会的目的在于培养大学生的动手能力，充实大学生校园生活，拓展大学生视野，加强大学生与社会的联系，培养综合素质全面发展的、服务社会的优秀人才。
+                    本协会尽大学生力所能及，充分利用大学生的课余时间培养动手能力和创新意识，推进学校物联网技术创新事业的发展。
+                </span>
+        </div>
+    </div>
+</div>
+    <script rel="stylesheet" src="{% static "js/jquery-3.6.0.min.js" %}"></script>
+    <script rel="stylesheet" src="{% static 'plugin/bootstrap-3.4.1-dist/js/bootstrap.min.js' %}"></script>
+</body>
+</html>

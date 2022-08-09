@@ -1,0 +1,83 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="{% static 'plugin/bootstrap-3.4.1-dist/css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'plugin/font-awesome-4.7.0/css/font-awesome.min.css' %}">
+    <style>
+        .back {
+            background-color: #2aabd2;
+        }
+        .font{
+            color: #0f0f0f;
+        }
+    </style>
+
+    {% block css %}{% endblock %}
+</head>
+<body>
+<nav class="navbar navbar-default back">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+                    data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand font" href="http://www.nxist.com">宁夏理工学院</a>
+        </div>
+        <ul class="nav navbar-nav font">
+            <li class="active font"><a href="/index/association/">物联网协会</a></li>
+            <li><a href="#">成员</a></li>
+            <li><a href="/study/planning/">学习方向</a></li>
+            <li><a href="/development/planning/">发展规划</a></li>
+            <li><a href="#">研究项目</a></li>
+        </ul>
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-right font">
+                {% if request.tracer %}
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
+                           aria-haspopup="true"
+                           aria-expanded="false">管理员:{{ request.tracer.admin_name }} <span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="/admin/index/">管理中心</a></li>
+                            <li role="separator" class="divider"></li>
+                            <li><a href="/logout/">退出</a></li>
+                        </ul>
+                    </li>
+                {% elif request.tracer_student %}
+                    <li class="dropdown font">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
+                           aria-haspopup="true"
+                           aria-expanded="false">成员:{{ request.tracer_student.username }} <span
+                                class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="/student/index/">关于我</a></li>
+                            <li role="separator" class="divider"></li>
+                            <li><a href="/student/logout/">退出</a></li>
+                        </ul>
+                    </li>
+                {% else %}
+                    <li class="font"><a href="/index/register/">加入协会</a></li>
+                    <li class="font"><a href="/student/login/">协会成员登录</a></li>
+                    <li class="font"><a href="/admin/login/">管理员登录</a></li>
+                {% endif %}
+            </ul>
+        </div>
+    </div>
+</nav>
+
+{% block body %}
+{% endblock %}
+<script rel="stylesheet" src="{% static 'js/vue.js' %}"></script>
+<script rel="stylesheet" src="{% static "js/jquery-3.6.0.min.js" %}"></script>
+<script rel="stylesheet" src="{% static 'plugin/bootstrap-3.4.1-dist/js/bootstrap.min.js' %}"></script>
+{% block js %}
+{% endblock %}
+</body>
+</html>

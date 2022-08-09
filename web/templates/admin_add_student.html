@@ -1,0 +1,31 @@
+{% extends 'layout/basic.html' %}
+{% load static %}
+{% block css %}
+    <link rel="stylesheet" href="{% static 'css/account.css' %}">
+    <style>
+        .error-msg {
+            color: red;
+            position: absolute;
+        }
+    </style>
+{% endblock %}
+{% block body %}
+    <div class="account">
+        <div class="title">管理员添加成员</div>
+        <form id="regForm" novalidate method="post">
+            {% csrf_token %}
+            {% for field in forms %}
+                <div class="form-group">
+                    <label for="{{ field.id_for_label }}">{{ field.label }}</label>
+                    {{ field }}
+                    <span class="error-msg">{{ field.errors.0 }}</span>
+                </div>
+            {% endfor %}
+            <div class="row">
+                <div class="col-xs-3">
+                    <input type="submit" class="btn btn-primary" value="添加">
+                </div>
+            </div>
+        </form>
+    </div>
+{% endblock %}

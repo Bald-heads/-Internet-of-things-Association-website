@@ -1,0 +1,77 @@
+{% extends 'layout/basic.html' %}
+{% load static %}
+{% block css %}
+    <style>
+        .js {
+
+        }
+    </style>
+{% endblock %}
+{% block body %}
+    <div class="container">
+        <div style="margin-bottom: 10px">
+            <a class="btn btn-primary" href="/admin/add/student/" target="_blank">添加成员</a>
+        </div>
+        <div style="float: right;width: 300px;">
+            <form method="get">
+                <div class="input-group">
+                    <input type="text" name="q" class="form-control" placeholder="请输入名称">
+                    <span class="input-group-btn">
+                <button class="btn btn-default" type="submit">搜索</button>
+                </span>
+                </div>
+            </form>
+        </div>
+        <div class="panel panel-default">
+            <div class="panel-heading">协会成员</div>
+            <table class="table table-bordered">
+                <tr>
+                    <th>id</th>
+                    <th>姓名</th>
+                    <th>性别</th>
+                    <th>密码</th>
+                    <th>学号</th>
+                    <th>QQ号</th>
+                    <th>手机号</th>
+                    <th>操作</th>
+                </tr>
+                {% for obj in objects %}
+                    <tr>
+                        <td> {{ obj.id }}</td>
+                        <td>{{ obj.username }}</td>
+                        <td>{{ obj.get_gender_display }}</td>
+                        <td>{{ obj.password }}</td>
+                        <td>{{ obj.student_number }}</td>
+                        <td>{{ obj.student_qq }}</td>
+                        <td>{{ obj.mobile_phone }}</td>
+                        <td>
+                            <a class="btn btn-primary btn-xs" href="/student/{{ obj.id }}/edit/">编辑</a>
+                            <a class="btn btn-danger btn-xs js" href="/student/{{ obj.id }}/data/">删除</a>
+                        </td>
+                    </tr>
+                {% endfor %}
+            </table>
+        </div>
+    </div>
+    </div>
+    <div style="position: fixed;left: 40%;bottom: 70px">
+        <nav aria-label="Page navigation">
+            <ul class="pagination">
+                {{ page_string }}
+            </ul>
+        </nav>
+    </div>
+{% endblock %}
+{% block js %}
+    <script>
+        $('.js').click(function () {
+            const con = confirm("是否要删除")
+            if (con) {
+                return true
+            } else {
+                alert("取消成功")
+                return false
+            }
+        })
+    </script>
+{% endblock %}

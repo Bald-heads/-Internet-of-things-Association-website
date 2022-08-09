@@ -1,0 +1,38 @@
+{% extends 'layout/basic.html' %}
+{% load static %}
+{% block css %}
+    <style>
+    </style>
+{% endblock %}
+{% block body %}
+    <div class="container">
+        <div class="panel panel-default">
+            <div class="panel-heading">我的信息</div>
+            <table class="table table-bordered">
+                <tr>
+                    <th>姓名</th>
+                    <th>性别</th>
+                    <th>密码</th>
+                    <th>学号</th>
+                    <th>QQ号</th>
+                    <th>手机号</th>
+                    <th>操作</th>
+                </tr>
+                {% for obj in objects %}
+                    <tr>
+                        <td>{{ obj.username }}</td>
+                        <td>{{ obj.get_gender_display }}</td>
+                        <td>{{ obj.password }}</td>
+                        <td>{{ obj.student_number }}</td>
+                        <td>{{ obj.student_qq }}</td>
+                        <td>{{ obj.mobile_phone }}</td>
+                        <td>
+                            <a class="btn btn-primary btn-xs" href="/stud/{{ obj.id }}/edit/">编辑</a>
+                        </td>
+                    </tr>
+                {% endfor %}
+            </table>
+        </div>
+    </div>
+    </div>
+{% endblock %}

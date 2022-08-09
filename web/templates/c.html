@@ -1,0 +1,60 @@
+{% extends 'layout/study.html' %}
+{% load static %}
+{% block body %}
+    <div id="cLanguage">
+        <div id="python" style="margin: 30px">
+            <div class="container">
+                <div class="panel panel-default">
+                    <div class="panel-heading">c语言</div>
+                    <table class="table table-bordered">
+                        <tr>
+                            <th>c语言概述</th>
+                            <th>数据类型</th>
+                            <th>运算符和表达式</th>
+                            <th>语句与控制流</th>
+                            <th>函数与程序结构</th>
+                            <th>数组</th>
+                            <th>指针</th>
+                        </tr>
+                        <tr>
+                            <td>c语言的由来和历史</td>
+                            <td>int,float,double,str</td>
+                            <td>赋值,算数,逻辑运算符和表达式等</td>
+                            <td>判断语句,循环语句</td>
+                            <td>函数的声明,调用和递归等</td>
+                            <td>一维数组,二维数组</td>
+                            <td>指针与地址,指向函数,指针的指针</td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div style="margin: 100px">
+        <div class="container">
+            <div class="panel panel-default">
+                <div class="panel-heading">c语言进阶</div>
+                <table class="table table-bordered">
+                    <tr>
+                        <th>结构体</th>
+                        <th>联合体和枚举类型</th>
+                        <th>位运算</th>
+                        <th>预处理器</th>
+                        <th>文件</th>
+                        <th>存储管理</th>
+                        <th>标准函数库</th>
+                    </tr>
+                    <tr>
+                        <td>结构体数组,结构体指针,链式结构</td>
+                        <td>联合体,枚举类型</td>
+                        <td>二进制,八进制,对齐特性</td>
+                        <td>宏命令,条件编译,内联函数</td>
+                        <td>文件的基本操作和读写</td>
+                        <td>存储类别,内存动态管理</td>
+                        <td>数学库,断言库</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+{% endblock %}
